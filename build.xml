@@ -21,7 +21,7 @@
   <spotbugs home="${spotbugs.home}"
             output="xml"
             outputFile="bugs.xml" >
-    <!-- <auxClasspath path="${basedir}/lib/Regex.jar" /> -->
+    <auxClasspath path="./lib/*.jar" />
     <sourcePath path="${src}/src" />
     <class location="${dist}/lib/*.jar" />
   </spotbugs>
