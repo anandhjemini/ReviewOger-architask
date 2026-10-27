@@ -8,6 +8,25 @@
 	<property name="src" location="src" />
 	<property name="build" location="build" />
 	<property name="dist" location="dist" />
+	<property name="spotbugs.home" value="C:/Users/jeman/OneDrive/Desktop/archi-task/spotbugs-home/spotbugs-4.10.5" />
+
+
+
+	<taskdef
+    resource="edu/umd/cs/findbugs/anttask/tasks.properties"
+    classpath="C:/Users/jeman/OneDrive/Desktop/archi-task/spotbugs-home/spotbugs-4.10.5/lib/spotbugs-ant.jar" />
+
+
+	<target name="spotbugs" depends="dist">
+  <spotbugs home="${spotbugs.home}"
+            output="xml"
+            outputFile="bugs.xml" >
+    <!-- <auxClasspath path="${basedir}/lib/Regex.jar" /> -->
+    <sourcePath path="${src}/src" />
+    <class location="${dist}/lib/*.jar" />
+  </spotbugs>
+</target>
+
 
 	<target name="init">
 		<!-- Create the time stamp -->
